@@ -30,7 +30,8 @@ const Header = () => {
   };
 
   return (
-    <header className="font-mont sticky top-0 z-50 bg-white shadow-md">
+    <header className="font-mont sticky top-0 z-50 bg-white shadow-sm">
+      {" "}
       <div className=" border-b border-gray">
         <Container>
           <Flex className=" hidden lg:flex justify-between items-center h-12 text-sm font-normal">
@@ -51,11 +52,12 @@ const Header = () => {
           </Flex>
         </Container>
       </div>
-
       <div className="">
-        <div className="border-b border-gray">
+        <div className="border-b border-gray-200">
+          {" "}
           <Container>
-            <Flex className="py-4 gap-16 md:gap-0 items-center justify-between">
+            <Flex className="py-4 items-center justify-between">
+              {" "}
               <div className="">
                 <button onClick={() => setMenuClick(true)}>
                   <IoMenu className="text-xl md:hidden cursor-pointer" />
@@ -90,14 +92,15 @@ const Header = () => {
                         </Flex>
 
                         <Flex className="flex-col gap-4 py-6 items-start">
-                          <List text="Fashion" />
-                          <List text="Electronics" />
-                          <List text="Bags" />
-                          <List text="Footwear" />
-                          <List text="Groceries" />
-                          <List text="Beauty" />
-                          <List text="Wellness" />
-                          <List text="Jewellery" />
+                          <List text="Home" href="/" />
+                          <List text="Fashion" href="/fashion" />
+                          <List text="Electronics" href="/electronics" />
+                          <List text="Bags" href="/bags" />
+                          <List text="Footwear" href="/footwear" />
+                          <List text="Groceries" href="/groceries" />
+                          <List text="Beauty" href="/beauty" />
+                          <List text="Wellness" href="/wellness" />
+                          <List text="Jewellery" href="/jewellery" />
                         </Flex>
                         <button className="font-semibold rounded-md w-[220px] py-3 bg-red text-white hover:text-white hover:bg-black hover:border-black text-sm cursor-pointer duration-300">
                           Login
@@ -107,39 +110,52 @@ const Header = () => {
                   )}
                 </AnimatePresence>
               </div>
-
               <div className="lg:w-1/3 w-full">
                 <Image
-                  className="md:!w-[200px] !w-[140px]"
+                  className="md:w-[200px] w-[140px] object-contain"
                   src={Logo}
                   alt="Logo"
                 />
               </div>
-              <div className="lg:w-1/3 md:block hidden relative w-full">
+              <div className="lg:w-1/3 md:block relative">
                 <input
                   type="search"
-                  name=""
-                  id=""
                   placeholder="Search for products..."
-                  className="bg-gray-200 py-3 w-[582px] rounded-md pl-6 pr-6 outline-none"
+                  className="bg-gray-200 py-3 w-full rounded-md pl-6 pr-10 outline-none"
                 />
-                <IoSearchSharp className="absolute -right-32 top-1/2 transform -translate-y-1/2 text-xl" />
+
+                <IoSearchSharp className="absolute right-3 top-1/2 -translate-y-1/2 text-xl" />
               </div>
-              <Flex className="w-1/3 justify-end cursor-pointer items-center gap-3 text-lg">
-                <Flex className="justify-between gap-3 hidden md:flex items-center">
+<Flex className="ml-auto items-center gap-3">                {" "}
+                <Flex className="hidden md:flex items-center gap-3">
                   <Link href="/login" className="hover:text-red duration-500">
                     Login
                   </Link>
-                  <span>|</span>
-                  <p className="hover:text-red duration-500">Register</p>
-                  <FiHeart className="hover:text-red duration-500 text-2xl" />
+                  <span className="text-gray-400">|</span>
+                  <Link
+                    href="/register"
+                    className="hover:text-red duration-500 cursor-pointer"
+                  >
+                    Register
+                  </Link>
+
+                  <div className="flex block items-center gap-7">
+                    <Link href="/wishlist" className="relative flex">
+                      <span className="bg-[#DC2626] w-6 h-6 text-white rounded-full flex items-center justify-center absolute -top-[10px] -right-[17px] text-[9px]">
+                        3
+                      </span>
+                      <FiHeart className="text-2xl hover:text-red duration-500 cursor-pointer" />
+                    </Link>
+
+                    <Link href="/cart" className="relative flex">
+                      <span className="bg-[#DC2626] w-6 h-6 text-white rounded-full flex items-center justify-center absolute -top-[10px] -right-[10px] text-[9px]">
+                        3
+                      </span>
+                      <MdOutlineShoppingCart className="hover:text-red-500 duration-300 text-2xl md:text-3xl cursor-pointer" />
+                    </Link>
+                  </div>
                 </Flex>
-
                 <div className="">
-                  <button onClick={() => setShopping(true)}>
-                    <MdOutlineShoppingCart className="hover:text-red-500 duration-300 text-2xl md:text-3xl cursor-pointer" />
-                  </button>
-
                   <AnimatePresence>
                     {shopping && (
                       <>
@@ -201,15 +217,15 @@ const Header = () => {
               </Flex>
 
               <Flex className="w-4/6 justify-evenly">
-                <List text="Home" />
-                <List text="Fashion" />
-                <List text="Electronics" />
-                <List text="Bags" />
-                <List text="Footwear" />
-                <List text="Groceries" />
-                <List text="Beauty" />
-                <List text="Wellness" />
-                <List text="Jewellery" />
+                <List text="Home" href="/" />
+                <List text="Fashion" href="/fashion" />
+                <List text="Electronics" href="/electronics" />
+                <List text="Bags" href="/bags" />
+                <List text="Footwear" href="/footwear" />
+                <List text="Groceries" href="/groceries" />
+                <List text="Beauty" href="/beauty" />
+                <List text="Wellness" href="/wellness" />
+                <List text="Jewellery" href="/jewellery" />
               </Flex>
 
               <Flex className="w-1/6 items-center gap-3">

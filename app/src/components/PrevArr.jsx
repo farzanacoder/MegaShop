@@ -1,0 +1,15 @@
+import React from 'react'
+import { FaLongArrowAltLeft } from 'react-icons/fa'
+
+const PrevArr = ({ className , onClick }) => {
+  return (
+    <div
+        className={`bg-[#00000033] w-[64px] h-[64px] flex items-center justify-center rounded-full text-white absolute top-1/2 -translate-y-1/2 left-5 z-50 cursor-pointer ${className}`}
+      onClick={onClick}>
+        <FaLongArrowAltLeft className=' text-xl ' />
+
+    </div>
+  )
+}
+
+export default PrevArr

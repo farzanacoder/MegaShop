@@ -1,14 +1,17 @@
+import Link from "next/link";
+
 type ListProps = {
   text: string;
+  href?: string; // ✅ make optional
   className?: string;
 };
 
-const List = ({ text, className = "" }: ListProps) => {
+const List = ({ text, href = "#", className = "" }: ListProps) => {
   return (
     <li
       className={`${className} list-none cursor-pointer duration-500 font-mont text-[13px] md:text-base hover:text-red font-semibold`}
     >
-      {text}
+      <Link href={href}>{text}</Link>
     </li>
   );
 };
