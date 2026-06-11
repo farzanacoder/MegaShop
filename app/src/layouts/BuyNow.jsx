@@ -6,8 +6,7 @@ import Slider from "react-slick";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import ShopBrand from "../components/ShopBrand";
-import Image from "../components/Image";
-
+import Image from "next/image";
 import SHOP3 from "../assets/shop3.png";
 import SHOP4 from "../assets/shop4.png";
 import Buyimg from "../assets/buy.png";
@@ -37,7 +36,7 @@ const BuyNow = () => {
             <Slider {...settings}>
               {/* Slide 1 */}
               <div className="relative overflow-hidden">
-                <Image className="w-full h-full" src={Buyimg} />
+                <Image className="w-full h-full" src={Buyimg} alt="Buy Image 1" />
 
                 <Flex
                   className={`absolute top-0 right-0 w-[45%] h-full flex-col gap-2 items-start justify-center p-4 transition-transform duration-700 ease-out ${
@@ -72,7 +71,7 @@ const BuyNow = () => {
 
               {/* Slide 2 */}
               <div className="relative overflow-hidden">
-                <Image className="w-full h-full" src={Buyimg2} />
+                <Image className="w-full h-full" src={Buyimg2} alt="Buy Image 2" />
 
                 <Flex
                   className={`absolute top-0 right-0 w-[45%] h-full flex-col gap-2 items-start justify-center p-4 transition-transform duration-700 ease-out ${

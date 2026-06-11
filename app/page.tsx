@@ -41,10 +41,10 @@ export default function Home() {
       <Collection />
 
       {/* LATEST PRODUCTS */}
-      <LatestPrdct />
+      {/* <LatestPrdct /> */}
 
       {/* FEATURED PRODUCTS */}
-      <FturedPdcts />
+      {/* <FturedPdcts /> */}
 
       {/* BRAND IMAGE SECTION */}
       <BrandImg />

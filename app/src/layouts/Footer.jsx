@@ -1,6 +1,6 @@
 import React from "react";
 import Flex from "../components/Flex";
-import Image from "../components/Image";
+import Image from "next/image";
 import Footimg from "../assets/Container.png";
 import { FaFacebookF, FaInstagram, FaPinterestP } from "react-icons/fa";
 import { CiYoutube } from "react-icons/ci";
@@ -167,7 +167,7 @@ const Footer = () => {
           </Flex>
           <p className="text-[13px] mb-5 lg:mb-0 text-gray-600">© 2024 - Ecommerce Template</p>
           <div className="h-[23px] w-[203px]">
-            <Image className="h-full w-full" src={Footimg} />
+            <Image className="h-full w-full" src={Footimg} alt="Footer Image" />
           </div>
         </Flex>
       </Container>
