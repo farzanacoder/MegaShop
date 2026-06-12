@@ -2,7 +2,7 @@ import Link from "next/link";
 
 type ListProps = {
   text: string;
-  href?: string; // ✅ make optional
+  href?: string; 
   className?: string;
 };
 

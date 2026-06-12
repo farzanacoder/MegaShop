@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 import cartimg from "../assets/empty-cart.png";
 import Logo from "../assets/logo.png";
+import Search from "../components/Search";
 
 import { FiHeart } from "react-icons/fi";
 import { MdOutlineShoppingCart } from "react-icons/md";
@@ -19,10 +20,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 // eslint-disable-next-line no-unused-vars
 import { AnimatePresence, motion } from "framer-motion";
+import { FaAngleDown } from "react-icons/fa";
 
 const Header = () => {
   const [shopping, setShopping] = useState(false);
   const [menuclick, setMenuClick] = useState(false);
+
+  const [moreOpen, setMoreOpen] = useState(false);
 
   const overlayVariants = {
     hidden: { opacity: 0 },
@@ -99,8 +103,33 @@ const Header = () => {
                           <List text="Footwear" href="/footwear" />
                           <List text="Groceries" href="/groceries" />
                           <List text="Beauty" href="/beauty" />
-                          <List text="Wellness" href="/wellness" />
                           <List text="Jewellery" href="/jewellery" />
+
+
+                          <div className="w-full">
+                            <button
+                              onClick={() => setMoreOpen(!moreOpen)}
+                              className="flex items-center gap-2 font-semibold"
+                            >
+                              More
+                              <FaAngleDown
+                                className={`duration-300 ${moreOpen ? "rotate-180" : ""}`}
+                              />
+                            </button>
+
+                            {moreOpen && (
+                              <div className="pl-4 pt-3 flex flex-col gap-3">
+                                <List text="Fruits & Vegetables" href="/fruits-vegetables" />
+                                <List text="Meats & Seafood" href="/meats-seafood" />
+                                <List text="Breakfast & Dairy" href="/breakfast-dairy" />
+                                <List text="Breads & Bakery" href="/breads-bakery" />
+                                <List text="Beverages" href="/beverages" />
+                                <List text="Frozen Foods" href="/frozen-foods" />
+                              </div>
+                            )}
+                          </div>
+
+
                         </Flex>
                         <button className="font-semibold rounded-md w-[220px] py-3 bg-red text-white hover:text-white hover:bg-black hover:border-black text-sm cursor-pointer duration-300">
                           Login
@@ -117,16 +146,9 @@ const Header = () => {
                   alt="Logo"
                 />
               </div>
-              <div className="lg:w-1/3 md:block relative">
-                <input
-                  type="search"
-                  placeholder="Search for products..."
-                  className="bg-gray-200 py-3 w-full rounded-md pl-6 pr-10 outline-none"
-                />
+              <Search />
 
-                <IoSearchSharp className="absolute right-3 top-1/2 -translate-y-1/2 text-xl" />
-              </div>
-<Flex className="ml-auto items-center gap-3">                {" "}
+              <Flex className="ml-auto items-center gap-3">                {" "}
                 <Flex className="hidden md:flex items-center gap-3">
                   <Link href="/login" className="hover:text-red duration-500">
                     Login
@@ -139,7 +161,7 @@ const Header = () => {
                     Register
                   </Link>
 
-                  <div className="flex block items-center gap-7">
+                  <div className="flex items-center gap-7">
                     <Link href="/wishlist" className="relative flex">
                       <span className="bg-[#DC2626] w-6 h-6 text-white rounded-full flex items-center justify-center absolute -top-[10px] -right-[17px] text-[9px]">
                         3
@@ -224,8 +246,31 @@ const Header = () => {
                 <List text="Footwear" href="/footwear" />
                 <List text="Groceries" href="/groceries" />
                 <List text="Beauty" href="/beauty" />
-                <List text="Wellness" href="/wellness" />
                 <List text="Jewellery" href="/jewellery" />
+
+                <div className="relative group">
+                  <span className="text-[16px] text-gray-800 font-[600] hover:text-primary flex items-center gap-1 cursor-pointer">
+                    More
+                    <FaAngleDown size={18} />
+                  </span>
+
+                  <div className="absolute top-[100%] right-0 bg-white shadow-md rounded-md overflow-hidden w-[200px] invisible opacity-0 transition-all duration-300 group-hover:visible group-hover:opacity-100 z-50 py-2">
+
+                    <List text="Fruits & Vegetables" href="/fruits-vegetables" className="px-4 py-2" />
+
+                    <List text="Meats & Seafood" href="/meats-seafood" className="px-4 py-2" />
+
+                    <List text="Breakfast & Dairy" href="/breakfast-dairy" className="px-4 py-2" />
+
+                    <List text="Breads & Bakery" href="/breads-bakery" className="px-4 py-2" />
+
+                    <List text="Beverages" href="/beverages" className="px-4 py-2" />
+
+                    <List text="Frozen Foods" href="/frozen-foods" className="px-4 py-2" />
+
+                  </div>
+                </div>
+
               </Flex>
 
               <Flex className="w-1/6 items-center gap-3">
